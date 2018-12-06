@@ -38,3 +38,4 @@ public class OcrConfig {
         this.appSecret = appSecret;
     }
 }
+
