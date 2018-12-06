@@ -10,7 +10,31 @@ package com.liumapp.operator.baidu.ocr.config;
  */
 public class OcrConfig {
 
+    private String appKey;
 
+    private String appSecret;
 
+    public OcrConfig() {
+    }
 
+    public OcrConfig(String appKey, String appSecret) {
+        this.appKey = appKey;
+        this.appSecret = appSecret;
+    }
+
+    public String getAppKey() {
+        return appKey;
+    }
+
+    public void setAppKey(String appKey) {
+        this.appKey = appKey;
+    }
+
+    public String getAppSecret() {
+        return appSecret;
+    }
+
+    public void setAppSecret(String appSecret) {
+        this.appSecret = appSecret;
+    }
 }
