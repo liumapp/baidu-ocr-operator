@@ -10,6 +10,8 @@ package com.liumapp.operator.baidu.ocr.config;
  */
 public class OcrConfig {
 
+    private String appId;
+
     private String appKey;
 
     private String appSecret;
@@ -17,7 +19,8 @@ public class OcrConfig {
     public OcrConfig() {
     }
 
-    public OcrConfig(String appKey, String appSecret) {
+    public OcrConfig(String appId, String appKey, String appSecret) {
+        this.appId = appId;
         this.appKey = appKey;
         this.appSecret = appSecret;
     }
