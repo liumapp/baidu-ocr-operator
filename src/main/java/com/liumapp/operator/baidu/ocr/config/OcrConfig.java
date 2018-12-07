@@ -40,5 +40,14 @@ public class OcrConfig {
     public void setAppSecret(String appSecret) {
         this.appSecret = appSecret;
     }
+
+    @Override
+    public String toString() {
+        return "OcrConfig{" +
+                "appId='" + appId + '\'' +
+                ", appKey='" + appKey + '\'' +
+                ", appSecret='" + appSecret + '\'' +
+                '}';
+    }
 }
 
