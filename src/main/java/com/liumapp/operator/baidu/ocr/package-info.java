@@ -1,1 +1,0 @@
-package com.liumapp.operator.baidu.ocr;
