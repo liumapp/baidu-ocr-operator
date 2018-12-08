@@ -13,7 +13,7 @@
 </dependency>
 ````
 
-* 配置应用
+* 配置应用，在您的项目resources目录下创建一个baidu-ocr.yml文件（需要严格注意文件命名），并配置您的应用信息
 
 ````yaml
 com:
