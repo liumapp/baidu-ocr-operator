@@ -12,6 +12,28 @@ import com.liumapp.operator.baidu.ocr.job.JobData;
  */
 public class DriveLicenseOcrRequire extends JobData {
 
+    private String licensePicPath;
 
+    public DriveLicenseOcrRequire() {
+    }
 
+    public DriveLicenseOcrRequire(String licensePicPath) {
+        this.licensePicPath = licensePicPath;
+    }
+
+    public String getLicensePicPath() {
+        return licensePicPath;
+    }
+
+    public DriveLicenseOcrRequire setLicensePicPath(String licensePicPath) {
+        this.licensePicPath = licensePicPath;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "DriveLicenseOcrRequire{" +
+                "licensePicPath='" + licensePicPath + '\'' +
+                '}';
+    }
 }
