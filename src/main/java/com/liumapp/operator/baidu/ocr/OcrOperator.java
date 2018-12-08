@@ -1,5 +1,9 @@
 package com.liumapp.operator.baidu.ocr;
 
+import com.alibaba.fastjson.JSONObject;
+import com.liumapp.operator.baidu.ocr.job.JobData;
+import com.liumapp.operator.baidu.ocr.job.JobDetail;
+
 /**
  * file OcrOperator.java
  * author liumapp
@@ -10,6 +14,8 @@ package com.liumapp.operator.baidu.ocr;
  */
 public class OcrOperator {
 
-
+    public JSONObject doJob(JobDetail jobDetail, JobData jobData) {
+        return jobDetail.handle(jobData);
+    }
 
 }
