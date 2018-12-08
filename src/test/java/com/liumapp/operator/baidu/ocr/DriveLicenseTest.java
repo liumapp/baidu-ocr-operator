@@ -20,7 +20,7 @@ public class DriveLicenseTest {
     private  String dataPath = "/usr/local/tomcat/project/baidu-ocr-operator/data/";
 
     @Test
-    public void testBusinessLicense () throws IOException {
+    public void testDriveLicense () throws IOException {
         OcrOperator ocrOperator = new OcrOperator();
         DriveLicenseOcr driveLicenseOcr = new DriveLicenseOcr();
         DriveLicenseOcrRequire driveLicenseOcrRequire = new DriveLicenseOcrRequire();
