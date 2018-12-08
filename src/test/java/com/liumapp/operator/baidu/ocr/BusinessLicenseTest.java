@@ -25,20 +25,7 @@ public class BusinessLicenseTest {
 
     @Test
     public void testBusinessLicense () {
-//        AipOcr client = new AipOcr();
-//        // 传入可选参数调用接口
-//        HashMap<String, String> options = new HashMap<String, String>();
-//
-//
-//        // 参数为本地路径
-//        String image = dataPath + "/businessLicense01.jpg";
-//        JSONObject res = client.businessLicense(image, options);
-//        System.out.println(res.toString(2));
-//
-//        // 参数为二进制数组
-//        byte[] file = readFile("test.jpg");
-//        res = client.businessLicense(file, options);
-//        System.out.println(res.toString(2));
+
     }
 
 }
