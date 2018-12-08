@@ -1,5 +1,14 @@
 package com.liumapp.operator.baidu.ocr;
 
+import com.alibaba.fastjson.JSONObject;
+import com.liumapp.operator.baidu.ocr.bl.BusinessLicenseOcr;
+import com.liumapp.operator.baidu.ocr.bl.require.BusinessLicenseOcrRequire;
+import com.liumapp.operator.baidu.ocr.dl.DriveLicenseOcr;
+import com.liumapp.operator.baidu.ocr.dl.require.DriveLicenseOcrRequire;
+import org.junit.Test;
+
+import java.io.IOException;
+
 /**
  * file DriveLicenseTest.java
  * author liumapp
@@ -10,6 +19,17 @@ package com.liumapp.operator.baidu.ocr;
  */
 public class DriveLicenseTest {
 
+    private  String dataPath = "/usr/local/tomcat/project/baidu-ocr-operator/data/";
+
+    @Test
+    public void testBusinessLicense () throws IOException {
+        OcrOperator ocrOperator = new OcrOperator();
+        DriveLicenseOcr driveLicenseOcr = new DriveLicenseOcr();
+        DriveLicenseOcrRequire driveLicenseOcrRequire = new DriveLicenseOcrRequire();
+        driveLicenseOcrRequire.setLicensePicPath(dataPath + "/driveLicense01.jpg");
+        JSONObject res = ocrOperator.doJob(driveLicenseOcr, driveLicenseOcrRequire);
+        System.out.println(res.toJSONString());
+    }
 
 
 }
