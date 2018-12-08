@@ -1,8 +1,6 @@
 package com.liumapp.operator.baidu.ocr;
 
 import com.alibaba.fastjson.JSONObject;
-import com.liumapp.operator.baidu.ocr.bl.BusinessLicenseOcr;
-import com.liumapp.operator.baidu.ocr.bl.require.BusinessLicenseOcrRequire;
 import com.liumapp.operator.baidu.ocr.dl.DriveLicenseOcr;
 import com.liumapp.operator.baidu.ocr.dl.require.DriveLicenseOcrRequire;
 import org.junit.Test;
