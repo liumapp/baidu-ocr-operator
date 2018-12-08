@@ -1,9 +1,12 @@
 package com.liumapp.operator.baidu.ocr;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baidu.aip.ocr.AipOcr;
-import org.json.JSONObject;
+import com.liumapp.operator.baidu.ocr.bl.BusinessLicenseOcr;
+import com.liumapp.operator.baidu.ocr.bl.require.BusinessLicenseOcrRequire;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -19,13 +22,13 @@ public class BusinessLicenseTest {
     private  String dataPath = "/usr/local/tomcat/project/baidu-ocr-operator/data/";
 
     @Test
-    public void testGetConfigInfo () {
-
-    }
-
-    @Test
-    public void testBusinessLicense () {
-
+    public void testBusinessLicense () throws IOException {
+        OcrOperator ocrOperator = new OcrOperator();
+        BusinessLicenseOcr businessLicenseOcr = new BusinessLicenseOcr();
+        BusinessLicenseOcrRequire businessLicenseOcrRequire = new BusinessLicenseOcrRequire();
+        businessLicenseOcrRequire.setLicensePicPath(dataPath + "/businessLicense01.jpg");
+        JSONObject res = ocrOperator.doJob(businessLicenseOcr, businessLicenseOcrRequire);
+        System.out.println(res.toJSONString());
     }
 
 }
