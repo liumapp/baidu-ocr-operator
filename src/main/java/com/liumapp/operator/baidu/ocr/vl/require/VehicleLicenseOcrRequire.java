@@ -14,11 +14,23 @@ public class VehicleLicenseOcrRequire extends JobData {
 
     private String licensePicPath;
 
+    private String Base64licensePic;
+
     public VehicleLicenseOcrRequire() {
     }
 
-    public VehicleLicenseOcrRequire(String licensePicPath) {
+    public VehicleLicenseOcrRequire(String licensePicPath, String base64licensePic) {
         this.licensePicPath = licensePicPath;
+        Base64licensePic = base64licensePic;
+    }
+
+    public String getBase64licensePic() {
+        return Base64licensePic;
+    }
+
+    public VehicleLicenseOcrRequire setBase64licensePic(String base64licensePic) {
+        Base64licensePic = base64licensePic;
+        return this;
     }
 
     public String getLicensePicPath() {
