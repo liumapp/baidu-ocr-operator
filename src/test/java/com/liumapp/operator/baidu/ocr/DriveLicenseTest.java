@@ -3,6 +3,7 @@ package com.liumapp.operator.baidu.ocr;
 import com.alibaba.fastjson.JSONObject;
 import com.liumapp.operator.baidu.ocr.dl.DriveLicenseOcr;
 import com.liumapp.operator.baidu.ocr.dl.require.DriveLicenseOcrRequire;
+import com.liumapp.qtools.file.base64.Base64FileTool;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -31,6 +32,19 @@ public class DriveLicenseTest {
         DriveLicenseOcr driveLicenseOcr = new DriveLicenseOcr();
         DriveLicenseOcrRequire driveLicenseOcrRequire = new DriveLicenseOcrRequire();
         driveLicenseOcrRequire.setLicensePicPath(dataPath + "/driveLicense01.jpg");
+        JSONObject res = ocrOperator.doJob(driveLicenseOcr, driveLicenseOcrRequire);
+        System.out.println(res.toJSONString());
+    }
+
+    /**
+     * 输入Base64格式的驾驶证获取OCR结果
+     */
+    @Test
+    public void testBase64DriveLicense () throws IOException {
+        OcrOperator ocrOperator = new OcrOperator();
+        DriveLicenseOcr driveLicenseOcr = new DriveLicenseOcr();
+        DriveLicenseOcrRequire driveLicenseOcrRequire = new DriveLicenseOcrRequire();
+        driveLicenseOcrRequire.setBase64licensePic(Base64FileTool.filePathToBase64(dataPath + "/driveLicense01.jpg"));
         JSONObject res = ocrOperator.doJob(driveLicenseOcr, driveLicenseOcrRequire);
         System.out.println(res.toJSONString());
     }
