@@ -27,7 +27,6 @@ public class VehicleLicenseTest {
         VehicleLicenseOcr vehicleLicenseOcr = new VehicleLicenseOcr();
         VehicleLicenseOcrRequire vehicleLicenseOcrRequire = new VehicleLicenseOcrRequire();
         vehicleLicenseOcrRequire.setLicensePicPath(dataPath + "/vehicleLicense01.jpg");
-
         JSONObject res = ocrOperator.doJob(vehicleLicenseOcr, vehicleLicenseOcrRequire);
         System.out.println(res);
     }

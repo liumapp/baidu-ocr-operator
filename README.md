@@ -41,10 +41,10 @@ System.out.println(res.toJSONString());
 
 ````java
 OcrOperator ocrOperator = new OcrOperator();
-BusinessLicenseOcr businessLicenseOcr = new BusinessLicenseOcr();
-BusinessLicenseOcrRequire businessLicenseOcrRequire = new BusinessLicenseOcrRequire();
-businessLicenseOcrRequire.setLicensePicPath(dataPath + "/businessLicense01.jpg");
-JSONObject res = ocrOperator.doJob(businessLicenseOcr, businessLicenseOcrRequire);
+DriveLicenseOcr driveLicenseOcr = new DriveLicenseOcr();
+DriveLicenseOcrRequire driveLicenseOcrRequire = new DriveLicenseOcrRequire();
+driveLicenseOcrRequire.setLicensePicPath(dataPath + "/driveLicense01.jpg");
+JSONObject res = ocrOperator.doJob(driveLicenseOcr, driveLicenseOcrRequire);
 System.out.println(res.toJSONString());
 ````
 
@@ -52,9 +52,9 @@ System.out.println(res.toJSONString());
 
 ````java
 OcrOperator ocrOperator = new OcrOperator();
-DriveLicenseOcr driveLicenseOcr = new DriveLicenseOcr();
-DriveLicenseOcrRequire driveLicenseOcrRequire = new DriveLicenseOcrRequire();
-driveLicenseOcrRequire.setLicensePicPath(dataPath + "/driveLicense01.jpg");
-JSONObject res = ocrOperator.doJob(driveLicenseOcr, driveLicenseOcrRequire);
-System.out.println(res.toJSONString());
+VehicleLicenseOcr vehicleLicenseOcr = new VehicleLicenseOcr();
+VehicleLicenseOcrRequire vehicleLicenseOcrRequire = new VehicleLicenseOcrRequire();
+vehicleLicenseOcrRequire.setLicensePicPath(dataPath + "/vehicleLicense01.jpg");
+JSONObject res = ocrOperator.doJob(vehicleLicenseOcr, vehicleLicenseOcrRequire);
+System.out.println(res);
 ````
