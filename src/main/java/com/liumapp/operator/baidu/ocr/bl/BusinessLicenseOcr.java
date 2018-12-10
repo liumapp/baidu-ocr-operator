@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baidu.aip.ocr.AipOcr;
 import com.liumapp.operator.baidu.ocr.bl.require.BusinessLicenseOcrRequire;
-import com.liumapp.operator.baidu.ocr.job.JobData;
 import com.liumapp.operator.baidu.ocr.job.JobDetail;
 
 import java.io.IOException;
