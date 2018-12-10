@@ -1,13 +1,12 @@
 package com.liumapp.operator.baidu.ocr;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baidu.aip.ocr.AipOcr;
 import com.liumapp.operator.baidu.ocr.bl.BusinessLicenseOcr;
 import com.liumapp.operator.baidu.ocr.bl.require.BusinessLicenseOcrRequire;
+import com.liumapp.qtools.file.base64.Base64FileTool;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 /**
  * file BusinessLicenseTest.java
@@ -36,6 +35,20 @@ public class BusinessLicenseTest {
         businessLicenseOcrRequire.setLicensePicPath(dataPath + "/businessLicense01.jpg");
         JSONObject res = ocrOperator.doJob(businessLicenseOcr, businessLicenseOcrRequire);
         System.out.println(res.toJSONString());
+    }
+
+    /**
+     * 输入营业执照的Base64验证OCR结果
+     */
+    @Test
+    public void testBusinessLicenseWithBase64 () throws IOException {
+        OcrOperator ocrOperator = new OcrOperator();
+        BusinessLicenseOcr businessLicenseOcr = new BusinessLicenseOcr();
+        BusinessLicenseOcrRequire businessLicenseOcrRequire = new BusinessLicenseOcrRequire();
+        businessLicenseOcrRequire.setBase64LicensePic(Base64FileTool.filePathToBase64(dataPath + "/businessLicense01.jpg"));
+        JSONObject res = ocrOperator.doJob(businessLicenseOcr, businessLicenseOcrRequire);
+        System.out.println(res.toJSONString());
+
     }
 
 }

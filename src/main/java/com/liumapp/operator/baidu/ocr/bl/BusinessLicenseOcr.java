@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.baidu.aip.ocr.AipOcr;
 import com.liumapp.operator.baidu.ocr.bl.require.BusinessLicenseOcrRequire;
 import com.liumapp.operator.baidu.ocr.job.JobDetail;
+import com.liumapp.qtools.file.base64.Base64FileTool;
+import com.liumapp.qtools.file.binary.BinaryFileTool;
 import com.liumapp.qtools.str.basic.StrTool;
 
 import java.io.IOException;
@@ -34,11 +36,11 @@ public class BusinessLicenseOcr extends JobDetail<BusinessLicenseOcrRequire> {
         org.json.JSONObject res = null;
         if (StrTool.isSpace(data.getLicensePicPath())) {
             //参数为Base64
-            res = client.businessLicense(data.getLicensePicPath(), options);
+            String base64 = Base64FileTool.removeBase64Header(data.getBase64LicensePic());
+            res = client.businessLicense(BinaryFileTool.Base64ToBinaryBytes(base64), options);
         } else {
             // 参数为本地路径
             res = client.businessLicense(data.getLicensePicPath(), options);
-
         }
         return JSON.parseObject(res.toString());
     }
