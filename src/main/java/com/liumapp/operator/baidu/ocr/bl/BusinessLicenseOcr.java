@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baidu.aip.ocr.AipOcr;
 import com.liumapp.operator.baidu.ocr.bl.require.BusinessLicenseOcrRequire;
 import com.liumapp.operator.baidu.ocr.job.JobDetail;
+import com.liumapp.qtools.str.basic.StrTool;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -30,8 +31,15 @@ public class BusinessLicenseOcr extends JobDetail<BusinessLicenseOcrRequire> {
         // 传入可选参数调用接口
         HashMap<String, String> options = new HashMap<String, String>();
 
-        // 参数为本地路径
-        org.json.JSONObject res = client.businessLicense(data.getLicensePicPath(), options);
+        org.json.JSONObject res = null;
+        if (StrTool.isSpace(data.getLicensePicPath())) {
+            //参数为Base64
+            res = client.businessLicense(data.getLicensePicPath(), options);
+        } else {
+            // 参数为本地路径
+            res = client.businessLicense(data.getLicensePicPath(), options);
+
+        }
         return JSON.parseObject(res.toString());
     }
 

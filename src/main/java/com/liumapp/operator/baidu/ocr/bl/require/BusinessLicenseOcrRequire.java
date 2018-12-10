@@ -14,11 +14,23 @@ public class BusinessLicenseOcrRequire extends JobData {
 
     private String licensePicPath;
 
+    private String base64LicensePic;
+
     public BusinessLicenseOcrRequire() {
     }
 
-    public BusinessLicenseOcrRequire(String licensePicPath) {
+    public BusinessLicenseOcrRequire(String licensePicPath, String base64LicensePic) {
         this.licensePicPath = licensePicPath;
+        this.base64LicensePic = base64LicensePic;
+    }
+
+    public String getBase64LicensePic() {
+        return base64LicensePic;
+    }
+
+    public BusinessLicenseOcrRequire setBase64LicensePic(String base64LicensePic) {
+        this.base64LicensePic = base64LicensePic;
+        return this;
     }
 
     public String getLicensePicPath() {
@@ -34,6 +46,7 @@ public class BusinessLicenseOcrRequire extends JobData {
     public String toString() {
         return "BusinessLicenseOcrRequire{" +
                 "licensePicPath='" + licensePicPath + '\'' +
+                ", base64LicensePic='" + base64LicensePic + '\'' +
                 '}';
     }
 }
