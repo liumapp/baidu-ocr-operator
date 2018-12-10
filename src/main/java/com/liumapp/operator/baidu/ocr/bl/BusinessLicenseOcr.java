@@ -33,8 +33,6 @@ public class BusinessLicenseOcr extends JobDetail<BusinessLicenseOcrRequire> {
 
         // 参数为本地路径
         org.json.JSONObject res = client.businessLicense(data.getLicensePicPath(), options);
-        System.out.println(res.toString(2));
-
         return JSON.parseObject(res.toString());
     }
 

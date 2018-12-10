@@ -34,7 +34,6 @@ public class VehicleLicenseOcr extends JobDetail<VehicleLicenseOcrRequire> {
 
         // 参数为本地路径
         org.json.JSONObject res = client.vehicleLicense(data.getLicensePicPath(), options);
-        System.out.println(res.toString(2));
         return JSON.parseObject(res.toString());
     }
 }

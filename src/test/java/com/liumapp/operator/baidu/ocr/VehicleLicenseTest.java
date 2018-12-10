@@ -21,6 +21,12 @@ public class VehicleLicenseTest {
 
     private  String dataPath = "/usr/local/tomcat/project/baidu-ocr-operator/data/";
 
+    /**
+     * 正确的返回结果:
+     * {"log_id":2428878435417674250,"words_result":{"车辆识别代号":{"words":"LVVDB11B89D122246"},"住址":{"words":"武汉市青山区渝金30街6017号"},"品牌型号":{"words":"奇瑞牌SQR7160T116"},"发证日期":{"words":"20140413"},"车辆类型":{"words":"小型轿车"},"所有人":{"words":"白敏强"},"使用性质":{"words":"非营运"},"发动机号码":{"words":"FF9C13703"},"号牌号码":{"words":"鄂A8HB57"},"注册日期":{"words":"20090413"}},"words_result_num":10,"direction":0}
+     * 错误的返回结果:
+     * {"error_msg":"IAM Certification failed","error_code":14}
+     */
     @Test
     public void testVehicleLicense () throws IOException {
         OcrOperator ocrOperator = new OcrOperator();
