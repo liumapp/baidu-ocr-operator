@@ -14,11 +14,23 @@ public class DriveLicenseOcrRequire extends JobData {
 
     private String licensePicPath;
 
+    private String base64licensePic;
+
     public DriveLicenseOcrRequire() {
     }
 
-    public DriveLicenseOcrRequire(String licensePicPath) {
+    public DriveLicenseOcrRequire(String licensePicPath, String base64licensePic) {
         this.licensePicPath = licensePicPath;
+        this.base64licensePic = base64licensePic;
+    }
+
+    public String getBase64licensePic() {
+        return base64licensePic;
+    }
+
+    public DriveLicenseOcrRequire setBase64licensePic(String base64licensePic) {
+        this.base64licensePic = base64licensePic;
+        return this;
     }
 
     public String getLicensePicPath() {
@@ -34,6 +46,7 @@ public class DriveLicenseOcrRequire extends JobData {
     public String toString() {
         return "DriveLicenseOcrRequire{" +
                 "licensePicPath='" + licensePicPath + '\'' +
+                ", base64licensePic='" + base64licensePic + '\'' +
                 '}';
     }
 }

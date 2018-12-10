@@ -5,6 +5,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.baidu.aip.ocr.AipOcr;
 import com.liumapp.operator.baidu.ocr.dl.require.DriveLicenseOcrRequire;
 import com.liumapp.operator.baidu.ocr.job.JobDetail;
+import com.liumapp.qtools.file.base64.Base64FileTool;
+import com.liumapp.qtools.file.binary.BinaryFileTool;
+import com.liumapp.qtools.str.basic.StrTool;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,8 +35,14 @@ public class DriveLicenseOcr extends JobDetail<DriveLicenseOcrRequire> {
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("detect_direction", "true");
 
-        // 参数为本地路径
-        org.json.JSONObject res = client.drivingLicense(data.getLicensePicPath(), options);
+        org.json.JSONObject res = null;
+        if (StrTool.isSpace(data.getLicensePicPath())) {
+            String base64 = Base64FileTool.removeBase64Header(data.getBase64licensePic());
+            res = client.drivingLicense(BinaryFileTool.Base64ToBinaryBytes(base64), options);
+        } else {
+            // 参数为本地路径
+            res = client.drivingLicense(data.getLicensePicPath(), options);
+        }
 
         return JSON.parseObject(res.toString());
     }
