@@ -5,6 +5,7 @@ import com.liumapp.operator.baidu.ocr.dl.DriveLicenseOcr;
 import com.liumapp.operator.baidu.ocr.dl.require.DriveLicenseOcrRequire;
 import com.liumapp.operator.baidu.ocr.vl.VehicleLicenseOcr;
 import com.liumapp.operator.baidu.ocr.vl.require.VehicleLicenseOcrRequire;
+import com.liumapp.qtools.file.base64.Base64FileTool;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -33,6 +34,16 @@ public class VehicleLicenseTest {
         VehicleLicenseOcr vehicleLicenseOcr = new VehicleLicenseOcr();
         VehicleLicenseOcrRequire vehicleLicenseOcrRequire = new VehicleLicenseOcrRequire();
         vehicleLicenseOcrRequire.setLicensePicPath(dataPath + "/vehicleLicense01.jpg");
+        JSONObject res = ocrOperator.doJob(vehicleLicenseOcr, vehicleLicenseOcrRequire);
+        System.out.println(res);
+    }
+
+    @Test
+    public void testBase64VehicleLicense () throws IOException {
+        OcrOperator ocrOperator = new OcrOperator();
+        VehicleLicenseOcr vehicleLicenseOcr = new VehicleLicenseOcr();
+        VehicleLicenseOcrRequire vehicleLicenseOcrRequire = new VehicleLicenseOcrRequire();
+        vehicleLicenseOcrRequire.setBase64licensePic(Base64FileTool.filePathToBase64(dataPath + "/vehicleLicense01.jpg"));
         JSONObject res = ocrOperator.doJob(vehicleLicenseOcr, vehicleLicenseOcrRequire);
         System.out.println(res);
     }
