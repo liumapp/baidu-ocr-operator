@@ -1,5 +1,5 @@
 # baidu-ocr-operator
-百度OCR接口操作工具类，不依赖第三方框架实现
+百度OCR接口操作工具类，不依赖第三方框架实现，同时支持本地文件上传和Base64字符串上传
 
 ## 如何使用
 
@@ -28,6 +28,8 @@ com:
 
 ## 营业执照OCR
 
+### 使用本地文件上传
+
 ````java
 OcrOperator ocrOperator = new OcrOperator();
 BusinessLicenseOcr businessLicenseOcr = new BusinessLicenseOcr();
@@ -37,7 +39,20 @@ JSONObject res = ocrOperator.doJob(businessLicenseOcr, businessLicenseOcrRequire
 System.out.println(res.toJSONString());
 ````
 
+### 使用Base64内容上传
+
+````java
+OcrOperator ocrOperator = new OcrOperator();
+BusinessLicenseOcr businessLicenseOcr = new BusinessLicenseOcr();
+BusinessLicenseOcrRequire businessLicenseOcrRequire = new BusinessLicenseOcrRequire();
+businessLicenseOcrRequire.setBase64LicensePic(Base64FileTool.filePathToBase64(dataPath + "/businessLicense01.jpg"));
+JSONObject res = ocrOperator.doJob(businessLicenseOcr, businessLicenseOcrRequire);
+System.out.println(res.toJSONString());
+````
+
 ## 驾驶证OCR
+
+### 使用本地文件上传
 
 ````java
 OcrOperator ocrOperator = new OcrOperator();
@@ -48,13 +63,37 @@ JSONObject res = ocrOperator.doJob(driveLicenseOcr, driveLicenseOcrRequire);
 System.out.println(res.toJSONString());
 ````
 
+### 使用Base64内容上传
+
+````java
+OcrOperator ocrOperator = new OcrOperator();
+DriveLicenseOcr driveLicenseOcr = new DriveLicenseOcr();
+DriveLicenseOcrRequire driveLicenseOcrRequire = new DriveLicenseOcrRequire();
+driveLicenseOcrRequire.setBase64licensePic(Base64FileTool.filePathToBase64(dataPath + "/driveLicense01.jpg"));
+JSONObject res = ocrOperator.doJob(driveLicenseOcr, driveLicenseOcrRequire);
+System.out.println(res.toJSONString());
+````
+
 ## 行驶证OCR
+
+### 使用本地文件上传
 
 ````java
 OcrOperator ocrOperator = new OcrOperator();
 VehicleLicenseOcr vehicleLicenseOcr = new VehicleLicenseOcr();
 VehicleLicenseOcrRequire vehicleLicenseOcrRequire = new VehicleLicenseOcrRequire();
 vehicleLicenseOcrRequire.setLicensePicPath(dataPath + "/vehicleLicense01.jpg");
+JSONObject res = ocrOperator.doJob(vehicleLicenseOcr, vehicleLicenseOcrRequire);
+System.out.println(res);
+````
+
+### 使用Base64内容上传
+
+````java
+OcrOperator ocrOperator = new OcrOperator();
+VehicleLicenseOcr vehicleLicenseOcr = new VehicleLicenseOcr();
+VehicleLicenseOcrRequire vehicleLicenseOcrRequire = new VehicleLicenseOcrRequire();
+vehicleLicenseOcrRequire.setBase64licensePic(Base64FileTool.filePathToBase64(dataPath + "/vehicleLicense01.jpg"));
 JSONObject res = ocrOperator.doJob(vehicleLicenseOcr, vehicleLicenseOcrRequire);
 System.out.println(res);
 ````
